@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFs | Giphy Lib</title>
+</head>
+
+<body>
+    <div class="w-screen min-h-screen flex flex-col">
+        <app-navbar></app-navbar>
+        <div *ngIf="activeGif?.title === 'GIF 1'"
+            class="w-screen h-screen absolute top-0 left-0 flex justify-end z-10 bg-app-blue/30">
+            <div class="w-3/12 flex flex-col bg-app-blue px-6 py-8">
+                <span class="text-white font-bold text-xl mb-4 text-center">{{activeGif?.title}}</span>
+                <img src="{{activeGif?.image}}" class="w-96 rounded my-6" alt="">
+                <div class=" text-white flex flex-col text-lg items-center">
+                    <span class="flex items-center"><span class="font-semibold">Width:</span> &nbsp;
+                        {{activeGif?.width}}</span>
+                    <span class="flex items-center"><span class="font-semibold">Height:</span>&nbsp;
+                        {{activeGif?.height}}</span>
+                    <a href="{{activeGif?.image}}" download="unsplash_image.jpg">
+                        <button
+                            class="bg-white w-44 h-10 flex text-app-blue rounded-lg font-semibold items-center justify-center m-auto mt-4"><i
+                                class="text-lg fa fa-download text-app-blue mr-2"></i><span>Download</span> </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 dxl:grid-cols-4 px-14 gap-y-12">
+            <gif *ngFor="let gif of gifs" [onGifClick]="onGifClick" [gif]="gif"></gif>
+        </div>
+    </div>
+</body>
+
+</html>
