@@ -1,0 +1,13 @@
+<div class="w-screen bg-white py-4 flex items-center justify-between px-44 mb-16" >
+    <img class="w-52" src="./../../../assets/logo.svg" alt="">
+    <div class="flex items-center justify-center">
+        <a ngClass="hover:text-white rounded-3xl mx-3 hover:bg-app-blue text-app-blue" *ngFor="let link of navbarLinks"
+            class=" hover:text-gray-900 px-4 py-2 " [routerLink]="link.path">
+            {{link.name}}
+        </a>
+    </div>
+    <div class="w-72 items-center rounded-3xl bg-[#f0f0f0] flex p-2 pl-3">
+        <i class="fa fa-search text-app-blue"></i>
+        <input type="text" class="w-11/12 outline-none bg-inherit ml-3" placeholder="Search here...">
+    </div>
+</div>
