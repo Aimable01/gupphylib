@@ -1,0 +1,21 @@
+<div class="w-screen min-h-screen flex items-center justify-center bg-[#f0f0f0]">
+    <div class="bg-white flex flex-col items-center p-3 px-6 rounded-lg w-1/4">
+        <img src="../../../assets//logo.svg" class="w-44 my-4" alt="" />
+        <span class="font-bold text-3xl my-3">Welcome Back</span>
+        <form class="my-4 flex flex-col w-11/12 items-center">
+            <div class="w-full flex flex-col my-3">
+                <span class="font-semibold">Username</span>
+                <input placeholder="eg: ivainqueur" type="text"
+                    class="mt-2 w-full p-2 focus:outline-app-blue rounded-lg outline-none border focus:border-none" />
+            </div>
+            <div class="w-full flex flex-col my-3">
+                <span class="font-semibold">Password</span>
+                <input placeholder="******" type="password"
+                    class="mt-2 w-full p-2 focus:outline-app-blue rounded-lg outline-none border focus:border-none" />
+            </div>
+            <a [routerLink]="'/'">
+                <button class="mt-10 bg-app-blue text-white w-44 h-12 rounded-lg text-center">Continue</button>
+            </a>
+        </form>
+    </div>
+</div>
