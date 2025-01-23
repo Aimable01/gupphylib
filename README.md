@@ -14,7 +14,7 @@ GiphyLib is a simple Angular application that allows users to explore and search
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Aimable01/giphylib.git
+   git clone https://github.com/Aimable01/guphylib.git
    ```
 2. Navigate to the project directory:
    ```bash
