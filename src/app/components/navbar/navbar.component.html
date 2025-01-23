@@ -50,6 +50,8 @@
       <i class="fa fa-search text-app-blue"></i>
       <input
         type="text"
+        [(ngModel)]="searchText"
+        (keyup.enter)="onSearch()"
         class="w-full outline-none bg-inherit ml-3 text-lg md:text-base"
         placeholder="Search here..."
       />

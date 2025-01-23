@@ -22,4 +22,11 @@ export class GifService {
       `${this.unsplashUrl}?query=random&client_id=${this.apiKey}`
     );
   }
+
+  // Add this method to search for GIFs
+  searchGifs(query: string): Observable<any> {
+    return this.http.get(
+      `${this.unsplashUrl}?query=${query}&client_id=${this.apiKey}`
+    );
+  }
 }

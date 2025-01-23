@@ -13,6 +13,7 @@ const routes: Routes = [
     component: GifsComponent,
   },
   { path: 'random', component: GifsComponent },
+  { path: 'search', component: GifsComponent },
   {
     path: '**',
     component: NotFoundComponent,
