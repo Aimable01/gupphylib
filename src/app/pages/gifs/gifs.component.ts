@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Title } from '@angular/platform-browser';
-import { IGif } from 'src/types';
+import { GifService } from 'src/app/services/gif.service';
+import { IGif } from 'src/types'; // Ensure this interface is defined
 
 @Component({
   selector: 'gifs',
@@ -9,38 +8,55 @@ import { IGif } from 'src/types';
   styleUrls: ['./gifs.component.css'],
 })
 export class GifsComponent implements OnInit {
-  constructor(private http: HttpClient, private titleService: Title) {}
-
-  showPopup: boolean = false;
-  activeGif: IGif | null = null;
   gifs: IGif[] = [];
+  activeGif: IGif | null = null; // Add this property
+  showPopup: boolean = false; // Add this property
 
-  UNSPLASH_ACCESS_KEY = 'PHM3TzGVzI-tBANFVrkZVRemozQzECEuVIVDE2CM8WQ'; // Replace with your Unsplash API key
-  SEARCH_QUERY = 'dogs'; // Set to desired search term
-  API_URL = `https://api.unsplash.com/search/photos?query=${this.SEARCH_QUERY}&per_page=10&client_id=${this.UNSPLASH_ACCESS_KEY}`;
+  constructor(private gifService: GifService) {}
 
   ngOnInit() {
-    this.titleService.setTitle('GIFs - Giphy Lib');
-    this.fetchGifs();
+    // Load based on current route
+    const currentPath = window.location.pathname;
+    if (currentPath === '/trending') {
+      this.fetchTrendingGifs();
+    } else if (currentPath === '/random') {
+      this.fetchRandomGifs();
+    } else {
+      this.fetchRandomGifs(); // Default for home
+    }
   }
 
-  fetchGifs() {
-    this.http.get<any>(this.API_URL).subscribe((response) => {
+  fetchTrendingGifs() {
+    this.gifService.getTrendingGifs().subscribe((response) => {
       this.gifs = response.results.map((img: any) => ({
-        id: img.id,
-        title: img.alt_description || 'GIF',
-        height: img.height,
+        id: img.id, // Add an ID for uniqueness
+        title: img.alt_description || 'Untitled',
         width: img.width,
-        image: img.urls.regular,
+        height: img.height,
+        image: img.urls.small,
       }));
     });
   }
 
+  fetchRandomGifs() {
+    this.gifService.getRandomGifs().subscribe((response) => {
+      this.gifs = response.results.map((img: any) => ({
+        id: img.id, // Add an ID for uniqueness
+        title: img.alt_description || 'Untitled',
+        width: img.width,
+        height: img.height,
+        image: img.urls.small,
+      }));
+    });
+  }
+
+  // Add this method to handle GIF clicks
   onGifClick(clickedGif: IGif) {
     this.activeGif = clickedGif;
     this.showPopup = true;
   }
 
+  // Add this method to close the popup
   onGifClose() {
     this.activeGif = null;
     this.showPopup = false;

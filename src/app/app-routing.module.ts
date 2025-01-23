@@ -9,6 +9,11 @@ const routes: Routes = [
     component: GifsComponent,
   },
   {
+    path: 'trending',
+    component: GifsComponent,
+  },
+  { path: 'random', component: GifsComponent },
+  {
     path: '**',
     component: NotFoundComponent,
   },
