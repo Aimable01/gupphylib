@@ -1,0 +1,26 @@
+/* Ensure the navbar covers the entire screen on small devices */
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar-menu.open {
+    transform: translateX(0);
+  }
+}
+
+/* Smooth transition effects for menu and elements */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}

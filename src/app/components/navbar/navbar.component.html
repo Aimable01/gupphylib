@@ -1,13 +1,58 @@
-<div class="w-screen bg-white py-4 flex items-center justify-between px-44 mb-16" >
-    <img class="w-52" src="./../../../assets/logo.svg" alt="">
-    <div class="flex items-center justify-center">
-        <a ngClass="hover:text-white rounded-3xl mx-3 hover:bg-app-blue text-app-blue" *ngFor="let link of navbarLinks"
-            class=" hover:text-gray-900 px-4 py-2 " [routerLink]="link.path">
-            {{link.name}}
-        </a>
+<div
+  class="w-screen bg-white py-4 flex items-center justify-between px-8 md:px-20 lg:px-44 mb-16"
+>
+  <!-- Logo -->
+  <img
+    class="w-40 md:w-52 cursor-pointer"
+    src="./../../../assets/logo.svg"
+    alt="Home"
+    (click)="closeMenu()"
+    [routerLink]="'/'"
+  />
+
+  <!-- Mobile Menu Toggle Button -->
+  <button
+    class="md:hidden text-app-blue text-2xl focus:outline-none"
+    (click)="toggleMenu()"
+  >
+    <i
+      class="fa"
+      [ngClass]="{ 'fa-bars': !isMenuOpen, 'fa-times': isMenuOpen }"
+    ></i>
+  </button>
+
+  <!-- Navbar Links (Responsive Full-Screen Menu) -->
+  <div
+    [ngClass]="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
+    class="fixed inset-0 bg-white flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:static md:flex-row md:translate-x-0 md:bg-transparent md:justify-end md:w-auto z-50 shadow-lg md:shadow-none"
+  >
+    <!-- Close Button (Only visible on mobile) -->
+    <button
+      class="absolute top-6 right-8 text-4xl md:hidden"
+      (click)="closeMenu()"
+    >
+      &times;
+    </button>
+
+    <a
+      *ngFor="let link of navbarLinks"
+      class="text-app-blue text-2xl md:text-base hover:text-white rounded-3xl mx-3 hover:bg-app-blue px-4 py-2 my-4 md:my-0 transition-all duration-300"
+      [routerLink]="link.path"
+      (click)="closeMenu()"
+    >
+      {{ link.name }}
+    </a>
+
+    <!-- Responsive Search Bar -->
+    <div
+      class="w-3/4 md:w-72 items-center rounded-3xl bg-[#f0f0f0] flex p-2 pl-3 mt-4 md:mt-0"
+    >
+      <i class="fa fa-search text-app-blue"></i>
+      <input
+        type="text"
+        class="w-full outline-none bg-inherit ml-3 text-lg md:text-base"
+        placeholder="Search here..."
+      />
     </div>
-    <div class="w-72 items-center rounded-3xl bg-[#f0f0f0] flex p-2 pl-3">
-        <i class="fa fa-search text-app-blue"></i>
-        <input type="text" class="w-11/12 outline-none bg-inherit ml-3" placeholder="Search here...">
-    </div>
+  </div>
 </div>
