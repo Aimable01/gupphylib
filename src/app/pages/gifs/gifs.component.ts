@@ -11,7 +11,7 @@ export class GifsComponent implements OnInit {
   gifs: any[] = [];
   activeGif: any = null;
   showPopup: boolean = false;
-  isLoading: boolean = false; // Add this property
+  isLoading: boolean = false;
 
   constructor(private gifService: GifService, private route: ActivatedRoute) {}
 
@@ -34,7 +34,7 @@ export class GifsComponent implements OnInit {
   }
 
   fetchTrendingGifs() {
-    this.isLoading = true; // Start loading
+    this.isLoading = true;
     this.gifService.getTrendingGifs().subscribe(
       (response) => {
         this.gifs = response.results.map((img: any) => ({
@@ -44,16 +44,16 @@ export class GifsComponent implements OnInit {
           height: img.height,
           image: img.urls.small,
         }));
-        this.isLoading = false; // Stop loading
+        this.isLoading = false;
       },
       (error) => {
-        this.isLoading = false; // Stop loading on error
+        this.isLoading = false;
       }
     );
   }
 
   fetchRandomGifs() {
-    this.isLoading = true; // Start loading
+    this.isLoading = true;
     this.gifService.getRandomGifs().subscribe(
       (response) => {
         this.gifs = response.results.map((img: any) => ({
@@ -63,16 +63,16 @@ export class GifsComponent implements OnInit {
           height: img.height,
           image: img.urls.small,
         }));
-        this.isLoading = false; // Stop loading
+        this.isLoading = false;
       },
       (error) => {
-        this.isLoading = false; // Stop loading on error
+        this.isLoading = false;
       }
     );
   }
 
   fetchSearchGifs(query: string) {
-    this.isLoading = true; // Start loading
+    this.isLoading = true;
     this.gifService.searchGifs(query).subscribe(
       (response) => {
         this.gifs = response.results.map((img: any) => ({
@@ -82,10 +82,10 @@ export class GifsComponent implements OnInit {
           height: img.height,
           image: img.urls.small,
         }));
-        this.isLoading = false; // Stop loading
+        this.isLoading = false;
       },
       (error) => {
-        this.isLoading = false; // Stop loading on error
+        this.isLoading = false;
       }
     );
   }
