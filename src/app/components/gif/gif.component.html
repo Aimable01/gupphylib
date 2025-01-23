@@ -1,21 +1,39 @@
-<div title="Dog wearing rug" class="relative flex items-center duration-300 hover:w-72 w-56 h-56 bg-app-blue/20 text-app-blue rounded-lg m-3
-    group hover:bg-app-blue hover:text-white cursor-pointer">
-    <div
-        class="pt-2 pr-[1px] group-hover:w-24 absolute top-0 -right-2 group-hover:right-0 flex flex-col items-center gap-3 h-44">
-        <i class="fas fa-heart"></i>
-        <span class="rotate-90 group-hover:rotate-0 duration-300 font-bold text-lg">GIF</span>
-        <span
-            class="rotate-90 font-semibold text-[10px] mt-4 group-hover:hidden flex">{{gif?.width}}x{{gif?.height}}</span>
-        <div class="group-hover:flex hidden flex-col text-xs">
-            <span class="flex items-center"><span class="font-semibold">Width:</span> &nbsp; {{gif?.width}}</span>
-            <span class="flex items-center"><span class="font-semibold">Height:</span>&nbsp; {{gif?.height}}</span>
-            <a href="{{gif?.image}}" download="unsplash-image.jpg" target="_blank">
-                <button class="bg-white w-10 h-10 flex items-center justify-center rounded-full m-auto mt-4"><i
-                        class="text-lg fa fa-download text-app-blue"></i></button>
-            </a>
-        </div>
+<div
+  title="Dog wearing rug"
+  class="relative flex items-center duration-300 hover:w-72 w-56 h-56 bg-app-blue/20 text-app-blue rounded-lg m-3 group hover:bg-app-blue hover:text-white cursor-pointer"
+>
+  <div
+    class="pt-2 pr-[1px] group-hover:w-24 absolute top-0 -right-2 group-hover:right-0 flex flex-col items-center gap-3 h-44"
+  >
+    <i class="fas fa-heart"></i>
+    <span class="rotate-90 group-hover:rotate-0 duration-300 font-bold text-lg"
+      >GIF</span
+    >
+    <span
+      class="rotate-90 font-semibold text-[10px] mt-4 group-hover:hidden flex"
+      >{{ gif?.width }}x{{ gif?.height }}</span
+    >
+    <div class="group-hover:flex hidden flex-col text-xs">
+      <span class="flex items-center"
+        ><span class="font-semibold">Width:</span> &nbsp; {{ gif?.width }}</span
+      >
+      <span class="flex items-center"
+        ><span class="font-semibold">Height:</span>&nbsp;
+        {{ gif?.height }}</span
+      >
+      <a href="{{ gif?.image }}" download="unsplash-image.jpg" target="_blank">
+        <button
+          class="bg-white w-10 h-10 flex items-center justify-center rounded-full m-auto mt-4"
+        >
+          <i class="text-lg fa fa-download text-app-blue"></i>
+        </button>
+      </a>
     </div>
-    <img (click)="onGifClick(gif)"
-        class="w-56 h-56 object-cover absolute -rotate-[7deg] rounded-lg  -left-7  group-hover:rotate-0 duration-300"
-        src="{{gif?.image}}" alt="">
+  </div>
+  <img
+    (click)="onGifClick(gif)"
+    class="w-56 h-56 object-cover absolute -rotate-[7deg] rounded-lg -left-7 group-hover:rotate-0 duration-300"
+    src="{{ gif?.image }}"
+    alt=""
+  />
 </div>
