@@ -1,27 +1,47 @@
-# AngularPlayground
+# GiphyLib
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+GiphyLib is a simple Angular application that allows users to explore and search for images (GIFs) using the Unsplash API. It features a responsive design with dynamic content loading and a user-friendly interface.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Trending Images**: Displays trending images from Unsplash.
+- **Random Images**: Fetches random images from a variety of interesting topics.
+- **Search Functionality**: Allows users to search for specific images.
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices.
+- **Loading Skeleton**: Displays a loading skeleton while images are being fetched.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Aimable01/giphylib.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd giphylib
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   ng serve
+   ```
+5. Open your browser and navigate to `http://localhost:4200`.
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Home Page**: Displays random images from various topics.
+- **Trending Page**: Shows trending images.
+- **Search Bar**: Use the search bar to find specific images.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Angular**: Frontend framework.
+- **Unsplash API**: For fetching images.
+- **Tailwind CSS**: For styling.
 
-## Running end-to-end tests
+## Contributing
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Contributions are welcome! Please open an issue or submit a pull request.

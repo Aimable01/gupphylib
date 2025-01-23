@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GifService {
-  private apiKey = 'PHM3TzGVzI-tBANFVrkZVRemozQzECEuVIVDE2CM8WQ';
+  private apiKey = environment.UNSPLASH_ACCESS_KEY;
   private unsplashUrl = 'https://api.unsplash.com/search/photos';
 
   private topics: string[] = [
