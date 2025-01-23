@@ -5,13 +5,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'gif',
   templateUrl: './gif.component.html',
-  styleUrls: ['./gif.component.css']
+  styleUrls: ['./gif.component.css'],
 })
 export class GifComponent {
+  constructor(private sanitizer: DomSanitizer) {}
 
-  constructor(private sanitizer: DomSanitizer) { }
-
-  @Input() onGifClick: any;
+  @Input()
+  onGifClick!: (gif: IGif) => void;
   @Input() gif: IGif | undefined;
-  
 }

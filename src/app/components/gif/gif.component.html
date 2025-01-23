@@ -31,9 +31,10 @@
     </div>
   </div>
   <img
+    *ngIf="gif"
     (click)="onGifClick(gif)"
     class="w-56 h-56 object-cover absolute -rotate-[7deg] rounded-lg -left-7 group-hover:rotate-0 duration-300"
-    src="{{ gif?.image }}"
+    src="{{ gif.image }}"
     alt=""
   />
 </div>
